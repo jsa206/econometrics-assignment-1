@@ -1,0 +1,61 @@
+---
+title: |
+  | ASSIGNMENT XX
+header-includes: \usepackage{setspace} \onehalfspacing
+output:
+  pdf_document: default
+  word_document: default
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.  X. Name1 (uXXXXXX)
+2.  Y. Name2 (uXXXXXX)
+3.  Z. Name3 (uXXXXXX)
+
+# Theoretical Exercises 
+## Solution Theoretical Exercise 1 
+a)  ......
+b)  Math can be written like this $y_i = \boldsymbol{x}_i^{\prime} \beta + \varepsilon_i$
+c)  or as an equation on its own line: 
+$$ 
+y_i = \boldsymbol{x}_i^{\prime} \beta + \varepsilon_i
+$$ 
+
+## Solution Theoretical Exercise 1 
+And so on and so forth....
+
+# Empirical Exercise
+
+## Solution Empirical Exercise 1
+```{r,warn=F}
+# NOTE: Use below line to install the package. Remove the line after,
+#       as otherwise pdf generation won't work.
+# install.packages("mvtnorm") 
+library("mvtnorm")
+means = c(0,0)
+VCOV = matrix(c(1,0,0,1),nrow=2,byrow=T)
+n=2
+X = rmvnorm(n,mean=means,sigma=VCOV) 
+X
+```
+The function `rmvnorm` draws `n` values from the multivariate distribution, with means given in `means` and the covariance matrix `sigma`.
+
+
+## Solution Empirical Exercise 2
+```{r, fig.height = 3, fig.width = 4, fig.align = "center"}
+# Code block generating a plot
+# The figure size and positioning can be adjusted in the options for the block
+a = runif(10000)
+plot(a)
+```
+And so on and so forth... 
+
+# Some final tips
+- Try producing the pdf already while writing. There can be errors, where no pdf file can be produced (e.g. if you don't close close a mathematical expression with `$`). If you produce the pdf after  having written only a small part, and an error occurs, you know in which part the error is. 
+- Throughout, keep track of the variables you create, and their dimensions
+- If part of your code produces an error, first try to narrow down where the error is coming from by running individual code blocks or lines one by one
+
