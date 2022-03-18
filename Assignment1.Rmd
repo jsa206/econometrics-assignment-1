@@ -1,12 +1,12 @@
 ---
 title: |
-  | ASSIGNMENT XX
+  | ASSIGNMENT 1
 header-includes: \usepackage{setspace} \onehalfspacing
 output:
+  pdf_document: default
   html_document:
     df_print: paged
   word_document: default
-  pdf_document: default
 always_allow_html: yes
 ---
 
@@ -20,19 +20,34 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Theoretical Exercises 
 ## Solution Theoretical Exercise 1 
-a) 
-$$
-\boldsymbol{E}[u]
+a) The estimator $\hat{\mu}=\frac{1}{n+1}\sum_{i=1}^ny_i$ is biased and consistent.
+It is biased because $$E[\hat{\mu}]\neq \mu$$
+
+For example:
+$$E[\hat{\mu} ]=E[\frac{1}{n+1}\sum_{i=1}^ny_i] =\frac{1}{n+1}\sum_{i=1}^nE[y_i]=\frac{1}{n+1}\sum_{i=1}^n\mu=\frac{n}{n+1}\mu<\mu$$
+
+The estimator is consistent because as n grows arbitrarily large the estimator tends towards the true value.
+$$\displaystyle \lim_{n \to \infty} \hat{\mu}=\displaystyle \lim_{n \to \infty}\frac{1}{n+1}\sum_{i=1}^ny_i=\displaystyle \lim_{n \to \infty}\frac{n}{n+1}\displaystyle \lim_{n \to \infty}\frac{\sum_{i=1}^ny_i}{n}=\displaystyle \lim_{n \to \infty}\frac{n}{n+1}\mu=\displaystyle \lim_{n \to \infty}\frac{1}{1+\frac{1}{n}}\mu=\mu 
 $$
 
-b)  Math can be written like this $y_i = \boldsymbol{x}_i^{\prime} \beta + \varepsilon_i$
-c)  or as an equation on its own line: 
-$$ 
-y_i = \boldsymbol{x}_i^{\prime} \beta + \varepsilon_i
-$$ 
+b)  The estimator $\hat{\mu}=\frac{2}{n}\sum_{i=1}^\frac{n}{2}y_i$ is unbiased and consistent provided n is even.
+It is unbiased because $$E[\hat{\mu}]= \mu$$
+For example:
+$$E[ \hat{\mu} ]=E[\frac{2}{n}\sum_{i=1}^\frac{n}{2}y_i]=\frac{2}{n}\sum_{i=1}^\frac{n}{2}E[y_i]=\frac{2}{n}\sum_{i=1}^\frac{n}{2}\mu=\frac{2}{n}(\frac{n}{2}\mu)=\mu$$
+The estimator is consistent when n is even because $$ \frac{n}{2}=m \in N $$ n is shown to be a whole number. The limit of the estimator as n approaches infinity becomes:
 
-## Solution Theoretical Exercise 1 
-And so on and so forth....
+$$\displaystyle \lim_{n \to \infty}\hat{\mu}=\displaystyle \lim_{n \to \infty}\frac{2}{n}\sum_{i=1}^\frac{n}{2}y_i=\displaystyle \lim_{m \to \infty}\frac{1}{m}\sum_{i=1}^my_i=\mu$$
+
+c) The estimator is unbiased because: $$ \hat{\mu}=\frac{.1}{100}\sum_{i=1}^{100}y_i+\frac{.9}{n-100}\sum_{i=101}^{n}y_i$$
+$$ 
+E[\hat{\mu}]=E[\frac{0.1}{100}\sum_{i=1}^{100}y_i]+E[\frac{0.9}{n-100}\sum_{i=101}^{n}y_i]=\frac{0.1}{100}\sum_{i=1}^{100}\mu+\frac{0.9}{n-100}\sum_{i=101}^{n}\mu=\frac{0.1(100)}{100}\mu+\frac{0.9(n-100)}{n-100}=\mu
+$$ 
+The estimator is consistent because:
+$$\displaystyle \lim_{n \to \infty}\hat{\mu}=\displaystyle \lim_{n \to \infty}\frac{.1}{100}\sum_{i=1}^{100}y_i+\frac{.9}{n-100}\sum_{i=101}^{n}y_i=\displaystyle \lim_{m \to \infty}$$
+
+
+## Solution Theoretical Exercise 2 
+
 
 # Empirical Exercise
 
